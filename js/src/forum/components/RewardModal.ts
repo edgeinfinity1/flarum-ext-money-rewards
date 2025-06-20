@@ -79,7 +79,7 @@ export default class RewardModal extends Modal<RewardModalAttrs> {
                 m('input.FormControl', {
                     type: 'number',
                     value: this.customAmountValue,
-                    onchange: (event: InputEvent) => {
+                    oninput: (event: InputEvent) => {
                         this.customAmountValue = (event.target as HTMLInputElement).value;
                     },
                     min: app.forum.attribute('moneyRewardsCustomAmountsMin'),
@@ -106,7 +106,7 @@ export default class RewardModal extends Modal<RewardModalAttrs> {
                 m('label', app.translator.trans('clarkwinkelmann-money-rewards.forum.modal.label.comment')),
                 m('textarea.FormControl', {
                     value: this.comment,
-                    onchange: (event: InputEvent) => {
+                    oninput: (event: InputEvent) => {
                         this.comment = (event.target as HTMLInputElement).value;
                     },
                 }),
