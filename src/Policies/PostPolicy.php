@@ -14,6 +14,7 @@ class PostPolicy extends AbstractPolicy
         return ($post instanceof CommentPost) && // Only text posts
             $post->user_id && // Cannot reward anonymous posts or by deleted users
             $post->user_id !== $actor->id && // Cannot reward yourself
-            $actor->can('rewardPostsWithMoney', $post->discussion);
+            $actor->can('rewardPostsWithMoney', $post->discussion) &&
+            $actor->can('reply', $post->discussion);
     }
 }
